@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.2].define(version: 2024_09_04_105030) do
-  create_table "production_plans", charset: "utf8", force: :cascade do |t|
+  create_table "production_plans", charset: "utf8mb3", force: :cascade do |t|
     t.integer "production_count"
     t.integer "actual_count"
     t.decimal "operation_rate", precision: 10
@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_04_105030) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "registrations", charset: "utf8", force: :cascade do |t|
+  create_table "registrations", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
     t.integer "cycle_time"
     t.decimal "output_rate", precision: 10
