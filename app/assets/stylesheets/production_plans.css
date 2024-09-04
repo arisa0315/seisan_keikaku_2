@@ -10,43 +10,46 @@ h1 {
   margin-bottom: 30px;
 }
 
-.container {
+/* トップページ専用のコンテナとフォームのスタイル */
+.top-container {
   display: flex;
   justify-content: center;
-}
-
-.form-wrapper {
-  border: 2px solid #000;
-  padding: 20px;
+  align-items: flex-start;
   width: 80%;
-  max-width: 900px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.form-row {
+.top-form-wrapper {
+  border: 1px solid #000;
+  padding: 20px;
+  width: 100%;
+}
+
+.top-form-row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.form-group {
+.top-form-group {
   width: 48%;
 }
 
-.form-group label {
+.top-form-group label {
   font-size: 18px;
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
 }
 
-.form-group input, .form-group select {
+.top-form-group input, .top-form-group select {
   width: 100%;
   padding: 10px;
   font-size: 16px;
 }
 
-/* 生産開始時刻のデザイン */
-.time-input {
+.top-time-input {
   display: flex;
   align-items: center;
 }
@@ -55,11 +58,6 @@ h1 {
   width: 45px;
   text-align: center;
   margin-right: 5px;
-}
-
-.time-input span {
-  font-size: 24px;
-  font-weight: bold;
 }
 
 /* 新規登録ボタン */
