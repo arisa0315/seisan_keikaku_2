@@ -56,4 +56,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'mysql2'
+gem 'mysql2', '>= 0.5.6'
