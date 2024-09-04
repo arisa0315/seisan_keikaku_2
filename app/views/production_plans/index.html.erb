@@ -1,27 +1,60 @@
 <h1>生産計画</h1>
-<table>
-  <thead>
-    <tr>
-      <th>生産数</th>
-      <th>実績</th>
-      <th>可動率</th>
-      <th>生産開始時刻</th>
-      <th>終了予定時刻</th>
-      <th>生産体制</th>
-      <th>切り替え予定体制</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @production_plans.each do |plan| %>
-      <tr>
-        <td><%= plan.production_count %></td>
-        <td><%= plan.actual_count %></td>
-        <td><%= plan.operation_rate %></td>
-        <td><%= plan.start_time %></td>
-        <td><%= plan.end_time %></td>
-        <td><%= plan.shift_start %></td>
-        <td><%= plan.shift_change %></td>
-      </tr>
+
+<div class="container">
+  <div class="form-wrapper">
+    <%= form_with url: production_plans_path, method: :post, local: true do |form| %>
+      <div class="form-row">
+        <div class="form-group">
+          <label>生産数</label>
+          <%= form.text_field :production_count %>
+        </div>
+        <div class="form-group">
+          <label>生産開始体制</label>
+          <%= form.select :shift_start, options_for_select(['シフトA', 'シフトB', 'シフトC']) %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>実績</label>
+          <%= form.text_field :actual_count %>
+        </div>
+        <div class="form-group">
+          <label>生産開始時刻</label>
+          <div class="time-input">
+            <%= form.text_field :start_hour, class: 'time-field', placeholder: "HH" %>
+            <span>:</span>
+            <%= form.text_field :start_minute, class: 'time-field', placeholder: "MM" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>可動率</label>
+          <%= form.text_field :operation_rate, disabled: true, value: "自動計算" %>
+        </div>
+        <div class="form-group">
+          <label>切り替え予定生産体制</label>
+          <%= form.select :shift_change, options_for_select(['シフトA', 'シフトB', 'シフトC']) %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>終了予定時刻</label>
+          <%= form.text_field :end_time, disabled: true, value: "自動計算" %>
+        </div>
+        <div class="form-group">
+          <label>切り替え予定時刻</label>
+          <%= form.text_field :shift_change_time, disabled: true, value: "自動計算" %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+    <!-- 新規登録ボタン -->
+    <div class="new-registration">
+      <%= link_to '新規登録', new_registration_path %>
+    </div>
+  </div>
+</div>

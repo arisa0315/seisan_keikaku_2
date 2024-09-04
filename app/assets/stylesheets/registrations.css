@@ -1,0 +1,84 @@
+/* 全体のレイアウトを中央揃え */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+/* フォーム部分のスタイル */
+.form-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.unit {
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+/* 登録ボタンのスタイル */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* テーブル部分のスタイル */
+.table-wrapper {
+  width: 55%;
+}
+
+.table-box {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-box th, .table-box td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-box th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}

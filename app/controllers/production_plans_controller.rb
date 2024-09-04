@@ -10,15 +10,15 @@ class ProductionPlansController < ApplicationController
   def create
     @production_plan = ProductionPlan.new(production_plan_params)
     if @production_plan.save
-      redirect_to production_plans_path
+      redirect_to production_plans_path, notice: '生産計画が登録されました。'
     else
-      render 'new'
+      render :new
     end
   end
 
   private
 
   def production_plan_params
-    params.require(:production_plan).permit(:production_count, :actual_count, :operation_rate, :start_time, :end_time, :shift_start, :shift_change)
+    params.require(:production_plan).permit(:production_count, :actual_count, :start_time, :shift_start, :shift_change)
   end
 end

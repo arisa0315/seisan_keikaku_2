@@ -1,0 +1,79 @@
+/* 全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-wrapper {
+  border: 2px solid #000;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  width: 48%;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* 生産開始時刻のデザイン */
+.time-input {
+  display: flex;
+  align-items: center;
+}
+
+.time-field {
+  width: 45px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.time-input span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 新規登録ボタン */
+.new-registration {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.new-registration a {
+  font-size: 20px;
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.new-registration a:hover {
+  text-decoration: underline;
+}
