@@ -1,0 +1,27 @@
+<h1>生産計画</h1>
+<table>
+  <thead>
+    <tr>
+      <th>生産数</th>
+      <th>実績</th>
+      <th>可動率</th>
+      <th>生産開始時刻</th>
+      <th>終了予定時刻</th>
+      <th>生産体制</th>
+      <th>切り替え予定体制</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @production_plans.each do |plan| %>
+      <tr>
+        <td><%= plan.production_count %></td>
+        <td><%= plan.actual_count %></td>
+        <td><%= plan.operation_rate %></td>
+        <td><%= plan.start_time %></td>
+        <td><%= plan.end_time %></td>
+        <td><%= plan.shift_start %></td>
+        <td><%= plan.shift_change %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<h1>新規登録</h1>
+<%= form_with(model: @registration, local: true) do |form| %>
+  <div>
+    <%= form.label :name, "登録名" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :cycle_time, "C.T" %>
+    <%= form.number_field :cycle_time %>
+  </div>
+  <div>
+    <%= form.label :output_rate, "出来高" %>
+    <%= form.number_field :output_rate %>
+  </div>
+  <%= form.submit "登録する" %>
+<% end %>

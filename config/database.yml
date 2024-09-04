@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: rails_user
+  password: '0315' 
+  host: localhost
+
+development:
+  <<: *default
+  database: seisan_keikaku_2_development
+
+test:
+  <<: *default
+  database: seisan_keikaku_2_test
+
+production:
+  <<: *default
+  database: seisan_keikaku_2_production
+  username: rails_user
+  password: <%= ENV['SEISAN_KEIKAKU_DATABASE_PASSWORD'] %>
