@@ -1,24 +1,24 @@
 default: &default
-  adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /run/mysqld/mysqld.sock
-  port: 3306
 
 development:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: seisan_keikaku_2_development
 
 test:
   <<: *default
+  adapter: mysql2
+  username: root
+  password:
+  host: localhost
   database: seisan_keikaku_2_test
 
 production:
   <<: *default
-  database: seisan_keikaku_2_production
-  username: seisan_keikaku_2
-  password: <%= ENV["seisan_keikaku_2_DATABASE_PASSWORD"] %>
-  host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
-  port: <%= ENV.fetch("DATABASE_PORT", 3306) %>
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
