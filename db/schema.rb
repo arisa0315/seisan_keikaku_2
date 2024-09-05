@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_04_105030) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_05_145310) do
   create_table "production_plans", charset: "utf8mb3", force: :cascade do |t|
     t.integer "production_count"
     t.integer "actual_count"
@@ -27,6 +27,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_04_105030) do
     t.string "name"
     t.integer "cycle_time"
     t.decimal "output_rate", precision: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shifts", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

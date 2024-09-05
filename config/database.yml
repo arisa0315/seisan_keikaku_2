@@ -9,6 +9,7 @@ development:
   password:
   host: localhost
   database: seisan_keikaku_2_development
+  socket: /var/run/mysqld/mysqld.sock
 
 test:
   <<: *default
@@ -17,6 +18,7 @@ test:
   password:
   host: localhost
   database: seisan_keikaku_2_test
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   <<: *default
