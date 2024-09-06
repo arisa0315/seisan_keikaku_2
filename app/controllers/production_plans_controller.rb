@@ -93,8 +93,12 @@ class ProductionPlansController < ApplicationController
 
   # DELETE /production_plans/:id
   def destroy
-    @production_plan.destroy
-    redirect_to production_plans_url, notice: '生産計画が削除されました。'
+    @production_plan = ProductionPlan.find(params[:id])
+    if @production_plan.destroy
+      redirect_to production_plans_path, notice: '生産計画が削除されました。'
+    else
+      redirect_to production_plans_path, alert: '生産計画の削除に失敗しました。'
+    end
   end
 
   private

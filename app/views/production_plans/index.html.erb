@@ -29,9 +29,9 @@
                 <td><%= plan.shift.name %></td>
                 <td><%= plan.change_shift&.name %></td>
                 <td class="d-flex justify-content-center">
-                  <%= link_to '詳細', plan, class: "btn btn-primary btn-sm mx-1 px-3" %>
-                  <%= link_to '編集', edit_production_plan_path(plan), class: "btn btn-secondary btn-sm mx-1 px-3" %>
-                  <%= link_to '削除', plan, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm mx-1 px-3" %>
+                <%= link_to '詳細', production_plan_path(plan), class: "btn btn-primary btn-sm mx-1 px-3" %>
+                <%= link_to '編集', edit_production_plan_path(plan), class: "btn btn-secondary btn-sm mx-1 px-3" %>
+                <%= link_to '削除', production_plan_path(plan), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm mx-1 px-3" %>
                 </td>
               </tr>
             <% end %>
