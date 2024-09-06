@@ -1,0 +1,45 @@
+<h1>新規生産計画</h1>
+
+<%= form_with model: @production_plan, local: true do |form| %>
+  <% if @production_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@production_plan.errors.count, "エラー") %>が発生しました:</h2>
+      <ul>
+        <% @production_plan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :production_count, "生産数" %>
+    <%= form.number_field :production_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actual, "実績" %>
+    <%= form.number_field :actual %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time, "生産開始時刻" %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shift_id, "生産開始体制" %>
+    <%= form.collection_select :shift_id, @shifts, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :change_shift_id, "切り替え予定生産体制" %>
+    <%= form.collection_select :change_shift_id, @shifts, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', production_plans_path %>

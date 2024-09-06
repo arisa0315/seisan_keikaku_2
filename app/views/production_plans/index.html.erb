@@ -1,56 +1,47 @@
-<h1>生産計画</h1>
+<h1 class="text-center mb-5 display-4">生産計画一覧</h1>
 
-<div class="top-container">
-  <%= form_with url: production_plans_path, method: :post, local: true do |form| %>
-    <div class="top-content-wrapper">
-      <!-- 左ブロック -->
-      <div class="left-block">
-        <div class="top-form-group">
-          <label>生産数</label>
-          <%= form.text_field :production_count, class: 'form-control' %>
-        </div>
-        <div class="top-form-group">
-          <label>実績</label>
-          <%= form.text_field :actual_count, class: 'form-control' %>
-        </div>
-        <div class="top-form-group">
-          <label>可動率</label>
-          <%= form.text_field :operation_rate, class: 'form-control', disabled: true, value: "自動計算" %>
-        </div>
-        <div class="top-form-group">
-          <label>終了予定時刻</label>
-          <%= form.text_field :end_time, class: 'form-control', disabled: true, value: "自動計算" %>
-        </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered text-center align-middle mx-auto">
+          <thead class="table-light">
+            <tr class="table-primary">
+              <th>生産数</th>
+              <th>実績</th>
+              <th>可動率</th>
+              <th>開始時刻</th>
+              <th>終了予定時刻</th>
+              <th>生産開始体制</th>
+              <th>切り替え予定生産体制</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @production_plans.each do |plan| %>
+              <tr>
+                <td><%= plan.production_count %></td>
+                <td><%= plan.actual %></td>
+                <td><%= number_with_precision(plan.operation_rate, precision: 2) %> %</td>
+                <td><%= plan.start_time.strftime("%H:%M") %></td>
+                <td><%= plan.end_time.strftime("%H:%M") %></td>
+                <td><%= plan.shift.name %></td>
+                <td><%= plan.change_shift&.name %></td>
+                <td class="d-flex justify-content-center">
+                  <%= link_to '詳細', plan, class: "btn btn-primary btn-sm mx-1 px-3" %>
+                  <%= link_to '編集', edit_production_plan_path(plan), class: "btn btn-secondary btn-sm mx-1 px-3" %>
+                  <%= link_to '削除', plan, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger btn-sm mx-1 px-3" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
 
-      <!-- 右ブロック -->
-      <div class="right-block">
-        <div class="top-form-group">
-          <label>生産開始体制</label>
-          <%= form.select :shift_start, options_for_select(['シフトA', 'シフトB', 'シフトC']), class: 'form-control' %>
-        </div>
-        <div class="top-form-group">
-          <label>生産開始時刻</label>
-          <div class="top-time-input">
-            <%= form.text_field :start_hour, class: 'form-control time-field', placeholder: "HH" %>
-            <span>:</span>
-            <%= form.text_field :start_minute, class: 'form-control time-field', placeholder: "MM" %>
-          </div>
-        </div>
-        <div class="top-form-group">
-          <label>切り替え予定生産体制</label>
-          <%= form.select :shift_change, options_for_select(['シフトA', 'シフトB', 'シフトC']), class: 'form-control' %>
-        </div>
-        <div class="top-form-group">
-          <label>切り替え予定時刻</label>
-          <%= form.text_field :shift_change_time, class: 'form-control', disabled: true, value: "自動計算" %>
-        </div>
+      <div class="text-center mt-4">
+        <%= link_to '新規登録', new_production_plan_path, class: "btn btn-success btn-lg px-5 py-2" %>
       </div>
     </div>
-  
-    <!-- 新規登録ボタン -->
-    <div class="button-group">
-      <%= link_to '新規登録', new_registration_path, class: 'btn btn-primary' %>
-    </div>
-  <% end %>
+  </div>
 </div>

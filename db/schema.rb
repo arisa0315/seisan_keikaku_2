@@ -10,23 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_05_155004) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_06_184806) do
   create_table "production_plans", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "production_count"
-    t.integer "actual_count"
-    t.decimal "operation_rate", precision: 10
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string "shift_start"
-    t.string "shift_change"
+    t.integer "production_count", null: false
+    t.integer "actual", null: false
+    t.float "operation_rate", null: false
+    t.datetime "start_time", precision: nil, null: false
+    t.datetime "end_time", precision: nil
+    t.bigint "shift_id", null: false
+    t.bigint "change_shift_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "registration_id"
+    t.index ["change_shift_id"], name: "index_production_plans_on_change_shift_id"
+    t.index ["shift_id"], name: "index_production_plans_on_shift_id"
   end
 
   create_table "registrations", charset: "utf8mb3", force: :cascade do |t|
     t.string "name"
-    t.integer "cycle_time"
-    t.decimal "output_rate", precision: 10
+    t.integer "ct"
+    t.float "yield"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,16 +40,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_05_155004) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", charset: "utf8mb3", force: :cascade do |t|
-    t.string "nickname"
-    t.string "email"
-    t.string "encrypted_password"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_name_kana"
-    t.string "last_name_kana"
-    t.date "birthday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_foreign_key "production_plans", "shifts"
+  add_foreign_key "production_plans", "shifts", column: "change_shift_id"
 end

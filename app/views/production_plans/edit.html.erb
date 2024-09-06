@@ -1,0 +1,11 @@
+<h1>生産計画の編集</h1>
+
+<%= form_with model: @production_plan, local: true do |form| %>
+  <!-- フォーム内容は new.html.erb と同様 -->
+
+  <div class="actions">
+    <%= form.submit "更新" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', production_plans_path %>

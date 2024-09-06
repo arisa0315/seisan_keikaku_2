@@ -1,0 +1,46 @@
+<h1 class="text-center mb-5 display-4">生産計画詳細</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card p-4 shadow-sm" style="font-size: 1.2rem;">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>生産数:</strong> <%= @production_plan.production_count %></p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>実績:</strong> <%= @production_plan.actual %></p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>可動率:</strong> <%= number_with_precision(@production_plan.operation_rate, precision: 2) %> %</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>開始時刻:</strong> <%= @production_plan.start_time.strftime("%H:%M") %></p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>終了予定時刻:</strong> <%= @production_plan.end_time.strftime("%H:%M") %></p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>生産開始体制:</strong> <%= @production_plan.shift.name %></p>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <p><strong>切り替え予定生産体制:</strong> <%= @production_plan.change_shift&.name %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to '戻る', production_plans_path, class: "btn btn-primary btn-lg px-5 py-2" %>
+      </div>
+    </div>
+  </div>
+</div>

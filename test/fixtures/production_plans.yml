@@ -2,18 +2,18 @@
 
 one:
   production_count: 1
-  actual_count: 1
-  operation_rate: 9.99
-  start_time: 2024-09-04 19:50:19
-  end_time: 2024-09-04 19:50:19
-  shift_start: MyString
-  shift_change: MyString
+  actual: 1
+  operation_rate: 1.5
+  start_time: 2024-09-06 23:21:53
+  end_time: 2024-09-06 23:21:53
+  shift: one
+  change_shift: one
 
 two:
   production_count: 1
-  actual_count: 1
-  operation_rate: 9.99
-  start_time: 2024-09-04 19:50:19
-  end_time: 2024-09-04 19:50:19
-  shift_start: MyString
-  shift_change: MyString
+  actual: 1
+  operation_rate: 1.5
+  start_time: 2024-09-06 23:21:53
+  end_time: 2024-09-06 23:21:53
+  shift: two
+  change_shift: two

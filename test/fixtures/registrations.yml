@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  cycle_time: 1
-  output_rate: 9.99
+  ct: 1
+  yield: 1.5
 
 two:
   name: MyString
-  cycle_time: 1
-  output_rate: 9.99
+  ct: 1
+  yield: 1.5
